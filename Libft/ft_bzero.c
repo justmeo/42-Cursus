@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 09:27:23 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/04 14:37:38 by ymrabeti         ###   ########.fr       */
+/*   Created: 2023/07/04 14:35:03 by ymrabeti          #+#    #+#             */
+/*   Updated: 2023/07/04 14:45:46 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <strings.h>
+
+void	ft_bzero(void *s, size_t n)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	else
-		return (0);
+	unsigned int i;
+	unsigned char *v;
+
+	v = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		v[i] = 0;
+		i++;
+	}
+	s = v;
+	return (v);
 }
