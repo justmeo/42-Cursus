@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft.strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 09:27:23 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/04 12:29:09 by ymrabeti         ###   ########.fr       */
+/*   Created: 2023/07/04 10:28:06 by ymrabeti          #+#    #+#             */
+/*   Updated: 2023/07/04 12:29:44 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <string.h>
+
+size_t	ft_strlen(const char *s)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	else
-		return (0);
+	int i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
