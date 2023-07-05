@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 14:46:19 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/05 12:10:23 by ymrabeti         ###   ########.fr       */
+/*   Created: 2023/07/05 10:20:54 by ymrabeti          #+#    #+#             */
+/*   Updated: 2023/07/05 10:46:06 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <string.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		*i;
-	const char	*j;
+	char		*d;
+	const char	*s;
 
-	i = (char *)dst;
-	j = (const char *)src;
+	d = dest;
+	s = src;
 	while (n--)
-		*i++ = *j++;
-	return (dst);
-}
-
-int	main(void)
-{
-    char str1[] = "Quiz";
-    char str2[] = "Quiz";
-	printf("%s", ft_memcpy(str1, str2, sizeof(str2)));
+		*d++ = *s++;
+	return (dest);
 }
