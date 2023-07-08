@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 10:14:36 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/06 13:12:29 by ymrabeti         ###   ########.fr       */
+/*   Created: 2023/07/06 14:58:18 by ymrabeti          #+#    #+#             */
+/*   Updated: 2023/07/06 15:08:02 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <string.h>
-# include <unistd.h>
-#include <ctype.h>
-#include <stdlib.h>
+void    *ft_memchr(const void *str, int c, size_t n)
+{
+    unsigned char *s;
 
-#endif
+    s = (unsigned char *)str;
+    while (n--)
+    {
+        if (*s == (unsigned char)c)
+            return (s);
+        ++s;
+    }
+    return (NULL);
+}
+
+int main()
+{
+    char str[] = "Hello World";
+    char *p = ft_memchr(str, 'o', 5);
+    printf("%s\n", p);
+    return (0);
+}
