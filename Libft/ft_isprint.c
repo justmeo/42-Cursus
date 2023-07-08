@@ -6,9 +6,11 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 09:27:23 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/04 14:37:38 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:26:11 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

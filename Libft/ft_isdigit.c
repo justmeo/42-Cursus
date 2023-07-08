@@ -6,11 +6,11 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 08:29:15 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/04 08:44:08 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:26:11 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 09:15:31 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 11:17:57 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:29:36 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t num)
 {
 	unsigned char	*p1;
 	unsigned char	*p2;
-	
+
 	p1 = (unsigned char *)s1;
 	p2 = (unsigned char *)s2;
 	while (num--)
@@ -42,5 +42,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t num)
 //         printf("str1 is equal to str2\n");
 //     }
 
-//     return 0;
+//     return (0);
 // }

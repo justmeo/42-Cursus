@@ -6,12 +6,11 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:20:54 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/05 13:22:18 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:29:38 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

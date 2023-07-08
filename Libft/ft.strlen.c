@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 10:28:06 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/04 12:29:44 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:29:52 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (s[i])
 		i++;
 	return (i);

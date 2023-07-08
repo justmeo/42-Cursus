@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 16:06:58 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 16:12:08 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:28:34 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ char **ft_split(char const *s, char c)
     return (tab);
 }
 
-int main()
-{
-    char **tab;
-    int i;
+// int main()
+// {
+//     char **tab;
+//     int i;
 
-    i = 0;
-    tab = ft_split("hello world", ' ');
-    while (tab[i])
-    {
-        printf("%s\n", tab[i]);
-        i++;
-    }
-    return (0);
-}
+//     i = 0;
+//     tab = ft_split("hello world", ' ');
+//     while (tab[i])
+//     {
+//         printf("%s\n", tab[i]);
+//         i++;
+//     }
+//     return (0);
+// }

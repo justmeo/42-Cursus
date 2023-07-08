@@ -6,11 +6,11 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:42:58 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/04 12:28:56 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:26:13 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

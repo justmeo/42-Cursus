@@ -6,9 +6,11 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 08:49:24 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/04 09:26:13 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:26:12 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {
