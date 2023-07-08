@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 15:23:41 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 15:38:30 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 16:33:10 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int	ft_atoi(char *str)
 {
-	int me;
-	int sign;
-	sign = 1;
+	int	me;
+	int	sign;
 
+	sign = 1;
+	me = 0;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-')
@@ -30,10 +31,4 @@ int	ft_atoi(char *str)
 	while (*str >= '0' && *str <= '9')
 		me = me * 10 + (*str++ - '0');
 	return (me * sign);
-}
-
-int main()
-{
-    ft_atoi(" 1234")
-    printf()
 }
