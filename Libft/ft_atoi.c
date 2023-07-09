@@ -6,13 +6,13 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 15:23:41 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 18:57:57 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:56:45 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	me;
 	int	sign;

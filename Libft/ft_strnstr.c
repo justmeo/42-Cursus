@@ -1,32 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 12:39:20 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 19:59:05 by ymrabeti         ###   ########.fr       */
+/*   Created: 2023/07/09 12:45:56 by ymrabeti          #+#    #+#             */
+/*   Updated: 2023/07/09 12:45:57 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_tolower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c += 32);
-	else
-		return (c);
-}
-
-// int main()
-// {
-//     char lowercase = 'w';
-//     char uppercase = ft_tolower(lowercase);
-
-//     printf("Lowercase character: %c\n", lowercase);
-//     printf("Uppercase character: %c\n", uppercase);
-
-//     return (0);
-// }

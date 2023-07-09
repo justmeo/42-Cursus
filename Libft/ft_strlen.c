@@ -6,11 +6,11 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 10:28:06 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 19:29:52 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:56:05 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

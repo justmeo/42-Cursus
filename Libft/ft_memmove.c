@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:20:54 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 19:29:38 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:06:15 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,18 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	d = dest;
 	s = src;
-	while (n--)
-		*d++ = *s++;
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	if (s < d)
+	{
+		s += n;
+		d += n;
+		while (n--)
+			*--d = *--s;
+	}
+	else
+		while (n--)
+			*d++ = *s++;
 	return (dest);
 }
 

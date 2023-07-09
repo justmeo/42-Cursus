@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:03:25 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 19:29:46 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/09 13:19:14 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 
 	i = 0;
-	while (*dst)
+	while (*dst && size > 1)
 	{
 		dst++;
 		i++;

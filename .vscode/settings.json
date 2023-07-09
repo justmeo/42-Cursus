@@ -18,5 +18,8 @@
         "titleBar.inactiveBackground": "#4053e699",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#4053e6"
+    "peacock.color": "#4053e6",
+    "files.associations": {
+        "ft_lstadd_front.C": "cpp"
+    }
 }
