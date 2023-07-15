@@ -12,17 +12,43 @@
 
 #include "libft.h"
 
+size_t *size(const char *str , char x)
+{
+	size_t *i =(size_t *)malloc(2 * sizeof(size_t));
+
+	i[1] = i[0] = 0;
+
+	while(*str)
+	{
+		if (*str == x)
+		{
+			str++;
+		}
+		else 
+		{
+			i[0]+=1;
+			i[1]+=1;
+			while (*str != x)
+			{
+				str++;
+				i[1]+=1;
+			}
+		}
+	}
+	return i;
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	**tab;
+	char	**me;
 	int		i;
 	int		j;
 	int		k;
 
 	i = 0;
 	j = 0;
-	tab = (char **)malloc(sizeof(char *) * (ft_strlen(s) + 1));
-	if (!tab)
+	me = (char **)malloc(sizeof(char *) * (size(s,c)[0] + 1));
+	if (!me)
 		return (NULL);
 	while (s[i])
 	{
@@ -33,27 +59,28 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (i > k)
 		{
-			tab[j] = (char *)malloc(sizeof(char) * (i - k + 1));
-			if (!tab[j])
+			me[j] = (char *)malloc(sizeof(char) * (size(s,c)[1] + 1));
+			if (!me[j])
 				return (NULL);
-			ft_strlcpy(tab[j], s + k, i - k + 1);
+			ft_strlcpy(me[j], s + k, i - k + 1);
 			j++;
 		}
 	}
-	tab[j] = NULL;
-	return (tab);
+	me[j] = NULL;
+	return (me);
 }
-// int main()
-// {
-//     char **tab;
-//     int i;
 
-//     i = 0;
-//     tab = ft_split("hello world", ' ');
-//     while (tab[i])
-//     {
-//         printf("%s\n", tab[i]);
-//         i++;
-//     }
-//     return (0);
-// }
+int main()
+{
+    char **tab;
+    int i;
+
+    i = 0;
+    tab = ft_split("hello world yassine", ' ');
+    while (tab[i])
+    {
+        printf("%s\n", tab[i]);
+        i++;
+    }
+    return (0);
+}
