@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:14:36 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/16 14:37:20 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/16 16:50:39 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,8 @@ typedef struct s_list
 }					t_list;
 
 t_list				*ft_lstnew(void *content);
+void				ft_lstadd_front(t_list **lst, t_list *new);
+int					ft_lstsize(t_list *lst);
+t_list				*ft_lstlast(t_list *lst);
 
 #endif
