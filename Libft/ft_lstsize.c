@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:31:20 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/16 16:43:38 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:27:02 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	// t_list *me;
 	int i;
-	i = 0;
 
-	// me = lst;
+	i = 0;
 	while (lst)
 	{
 		lst = lst->next;

@@ -40,7 +40,8 @@ ft_putnbr_fd.c
 SRCS_BONUS = ft_lstnew.c \
 ft_lstad_front.c\
 ft_lstsize.c\
-ft_lstlast.c
+ft_lstlast.c\
+ft_lstadd_back.c
 
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)

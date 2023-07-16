@@ -20,6 +20,7 @@
     },
     "peacock.color": "#75b6f8",
     "files.associations": {
-        "ft_lstadd_front.C": "cpp"
+        "ft_lstadd_front.C": "cpp",
+        "locale": "c"
     }
 }
