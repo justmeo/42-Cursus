@@ -6,60 +6,70 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 09:29:48 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/16 09:35:40 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:48:30 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static size_t	ft_size(long x)
 {
-	int		me;
-	int		len;
-	int		sign;
-	char	*str;
-	int		i;
+	size_t	len;
 
-	me = n;
 	len = 0;
-	sign = 0;
-	if (me < 0)
+	if (x < 0)
 	{
-		sign = 1;
-		me *= -1;
+		x *= -1;
 		len++;
 	}
-	while (me > 0)
+	if (x == 0)
+		return (1);
+	while (x > 0)
 	{
-		me /= 10;
+		x /= 10;
 		len++;
 	}
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	me = n;
-	str[len] = '\0';
-	if (me < 0)
+	return (len);
+}
+
+static char	*calcul(char *str, long x)
+{
+	int	i;
+
+	i = 0;
+	if (x < 0)
 	{
-		me *= -1;
+		x *= -1;
 		str[0] = '-';
+		i = ft_size(x);
 	}
-	if (me == 0)
-		str[0] = 0;
 	else
+		i = ft_size(x) - 1;
+	if (x == 0)
+		str[0] = '0';
+	while (x > 0)
 	{
-		i = len - 1;
-		while (me > 0)
-		{
-			str[i] = me % 10 + '0';
-			me /= 10;
-			i--;
-		}
+		str[i] = x % 10 + '0';
+		x /= 10;
+		i--;
 	}
 	return (str);
 }
 
-// int main()
+char	*ft_itoa(int n)
+{
+	char	*str;
+	long	me;
+
+	me = n;
+	str = (char *)malloc((ft_size(me) + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	str[ft_size(me)] = '\0';
+	return (calcul(str, me));
+}
+
+// int	main(void)
 // {
-//     printf("%s",ft_itoa(   -1235));
+// 	printf("%s", ft_itoa(-2147483648));
 // }

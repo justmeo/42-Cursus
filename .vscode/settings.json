@@ -21,6 +21,10 @@
     "peacock.color": "#75b6f8",
     "files.associations": {
         "ft_lstadd_front.C": "cpp",
-        "locale": "c"
+        "locale": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "stdbool.h": "c",
+        "limits.h": "c"
     }
 }

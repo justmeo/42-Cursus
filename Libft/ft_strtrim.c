@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:52:01 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/16 10:25:23 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/18 08:16:18 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
+	if (ft_strlen(s1) < 2 || ft_strlen(s1) < ft_strlen(set))
+		return ((char *)s1);
 	i = 0;
 	j = ft_strlen(s1) - 1;
 	k = 0;

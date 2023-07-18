@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 13:02:02 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 19:29:44 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/18 08:15:17 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 char	*ft_strchr(const char *str, int c)
 {
+	unsigned char	me;
+
+	me = c;
 	while (*str)
 	{
-		if (*str == c)
+		if (*str == me)
 			return ((char *)str);
 		++str;
 	}
-	if (c == '\0')
+	if (me == '\0')
 		return ((char *)str);
 	return (NULL);
 }
