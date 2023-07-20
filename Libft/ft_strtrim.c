@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:52:01 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/18 08:16:18 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/20 18:11:43 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 char	*ft_strtrim(char const *s1, char const *set)
 
 {
-	char	*me;
-	size_t	i;
-	size_t	j;
-	size_t	k;
+	char *me;
+	size_t i;
+	size_t j;
+	size_t k;
 
-	if (!s1 || !set)
+	if (s1 == NULL)
 		return (NULL);
+	if (set == NULL)
+		return ((char *)s1);
 	if (ft_strlen(s1) < 2 || ft_strlen(s1) < ft_strlen(set))
 		return ((char *)s1);
 	i = 0;

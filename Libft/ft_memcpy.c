@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:46:19 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 20:04:08 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:42:10 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 // int	main(void)
 // {
-// 	char str1[] = "Quiz";
-// 	char str2[] = "Quiz";
-// 	printf("%s", ft_memcpy(str1, str2, sizeof(str2)));
+// 	char str1[] = "222222";
+// 		char str2[] = "1";
+// 	printf("mecpy-->%s", ft_memcpy(str1, str2, 10));
+// 	printf("mecpy-->%s", memcpy(str1, str2, 10));
 // }

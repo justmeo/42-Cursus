@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 09:15:31 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/09 10:25:19 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:14:19 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t num)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
+	unsigned char	*m1;
+	unsigned char	*m2;
 
-	p1 = (unsigned char *)s1;
-	p2 = (unsigned char *)s2;
+	m1 = (unsigned char *)s1;
+	m2 = (unsigned char *)s2;
 	while (num--)
 	{
-		if (*p1 != *p2)
-			return (*p1 - *p2);
-		p1++;
-		p2++;
+		if (*m1 != *m2)
+			return (*m1 - *m2);
+		m1++;
+		m2++;
 	}
 	return (0);
 }

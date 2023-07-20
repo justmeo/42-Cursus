@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:35:03 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 19:25:23 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:05:26 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned int	i;
+	size_t			i;
 	unsigned char	*v;
 
 	v = (unsigned char *)s;
@@ -26,17 +26,12 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-// #include <stdio.h>
-// #include <string.h>
-
 // int main()
 // {
-//     char str[50] = "yassine";
-//     printf("\nBefore memset(): %s\n", str);
-
-//     // Fill 8 characters starting from str[13] with '.'
-//     ft_bzero(str + 3, 8);
-
-//     printf("After memset():  %s", str);
-//     return (0);
+//     char str[50] = "8794";
+// 	char str1[50] = "8794";
+// 	ft_bzero(str, 2);
+// 	bzero(str1, 2);
+// 	printf("%s\n", str);
+// 	printf("%s\n", str1);
 // }

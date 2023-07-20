@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:58:18 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/08 19:29:10 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:08:25 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_memchr(const void *str, int c, size_t n)
 // int main()
 // {
 //     char str[] = "Hello World";
-//     char *p = ft_memchr(str, 'o', 5);
+//     char *p = ft_memchr(str, 'o', 2);
 //     printf("%s\n", p);
 //     return (0);
 // }

@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 09:29:48 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/18 11:48:30 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/20 14:39:51 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ char	*ft_itoa(int n)
 
 // int	main(void)
 // {
-// 	printf("%s", ft_itoa(-2147483648));
+// 	printf("%s", ft_itoa(0));
 // }

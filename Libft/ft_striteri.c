@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:37:15 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/16 18:26:30 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/20 14:38:34 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,17 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
+
+// void	ft_putchar(unsigned int i, char *c)
+// {
+// 	// *c = 'a';
+// 	write(1, c, 1);
+// }
+// int main()
+// {
+// 	char str[] = "Hello, world!";
+// 	void (*f)(unsigned int, char *);
+// 	f = &ft_putchar;
+// 	ft_striteri(str, f);
+// 	return (0);
+// }

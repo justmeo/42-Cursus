@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 15:23:41 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/18 08:15:04 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:53:44 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ int	ft_atoi(const char *str)
 
 // int	main(void)
 // {
-// 	char	str[50] = "87945127894518528549859845";
-
-// 	__LONG_MAX__;
-// 	UINT64_MAX;
+// 	char	str[50] = "8794";
 // 	printf("%d\n", ft_atoi(str));
 // 	printf("%d\n", atoi(str));
 // }

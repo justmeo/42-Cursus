@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:45:45 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/16 17:08:42 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/20 14:53:17 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ t_list	*ft_lstlast(t_list *lst)
 // 	t_list	*node1;
 // 	t_list	*node2;
 // 	t_list	*node3;
-
 // 	node1 = ft_lstnew("1");
 // 	node2 = ft_lstnew("2");
 // 	node3 = ft_lstnew("3");
