@@ -35,8 +35,5 @@ t_list	*ft_lstnew(void *content)
 // 	printf("Node 1: %d\n", *((int *)node1->content));
 // 	printf("Node 2: %s\n", (char *)node2->content);
 
-// 	free(node1);
-// 	free(node2);
-
 // 	return (0);
 // }

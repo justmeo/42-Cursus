@@ -24,3 +24,17 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
+
+// int main(void)
+// {
+// 	t_list *node1 = ft_lstnew("Hello");
+// 	t_list *node2 = ft_lstnew("World");
+// 	t_list *node3 = ft_lstnew("!");
+
+// 	node1->next = node2;
+// 	node2->next = node3;
+
+// 	printf("List size: %d\n", ft_lstsize(node1));
+
+// 	return (0);
+// }
