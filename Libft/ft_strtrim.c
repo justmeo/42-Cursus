@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:52:01 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/20 18:11:43 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/22 07:48:25 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,24 @@
 char	*ft_strtrim(char const *s1, char const *set)
 
 {
-	char *me;
-	size_t i;
-	size_t j;
-	size_t k;
+	char	*me;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	if (s1 == NULL)
+	if (!s1 || !set)
 		return (NULL);
-	if (set == NULL)
-		return ((char *)s1);
-	if (ft_strlen(s1) < 2 || ft_strlen(s1) < ft_strlen(set))
-		return ((char *)s1);
 	i = 0;
-	j = ft_strlen(s1) - 1;
+	j = ft_strlen(s1);
 	k = 0;
 	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
-	while (j > i && ft_strchr(set, s1[j]))
+	while (j > i && ft_strchr(set, s1[j - 1]))
 		j--;
-	me = (char *)malloc((j - i + 2) * sizeof(char));
+	me = (char *)malloc(sizeof(char) * (j - i + 1));
 	if (!me)
 		return (NULL);
-	while (i <= j)
+	while (i < j)
 		me[k++] = s1[i++];
 	me[k] = '\0';
 	return (me);

@@ -6,11 +6,20 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 10:41:18 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/17 16:03:03 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/22 08:11:49 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*pp(void)
+{
+	char	*me;
+
+	me = (char *)malloc((1) * sizeof(char));
+	me[0] = '\0';
+	return (me);
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -20,11 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if (start >= ft_strlen(s))
-	{
-		me = (char *)malloc((1) * sizeof(char));
-		me[0] = '\0';
-		return (me);
-	}
+		return (pp());
 	if (len > ft_strlen(s))
 		len = ft_strlen(s);
 	me = (char *)malloc((len + 1) * sizeof(char));

@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 16:06:58 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/18 12:02:13 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/22 08:55:01 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static size_t	sizme(const char *str, char x)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**copie(char const *s, char c)
 {
 	char	**me;
 	int		i;
@@ -89,5 +89,17 @@ char	**ft_split(char const *s, char c)
 		}
 	}
 	me[j] = NULL;
+	return (me);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**me;
+
+	if (!s)
+		return (NULL);
+	me = copie(s, c);
+	if (!me)
+		return (NULL);
 	return (me);
 }
