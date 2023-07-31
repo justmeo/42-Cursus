@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 09:29:43 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/22 08:19:01 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/22 10:18:54 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,21 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	me[i] = '\0';
 	return (me);
 }
+
+char	pp(unsigned int i, char c)
+{
+	char	p;
+
+	p = write(1, &c, 1);
+	return p;
+}
+
+// int	main(void)
+// {
+// 	char	str[] = "yasfdsg fdfdss";
+// 	char	(*f)(unsigned int, char);
+
+	
+// 	f = &pp;
+// 	ft_strmapi(str, f);
+// }

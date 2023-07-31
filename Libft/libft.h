@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:14:36 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/07/22 08:15:04 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/07/22 12:22:11 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+#include <limits.h>
 
 int					ft_isalpha(int a);
 int					ft_isdigit(int a);
