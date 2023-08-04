@@ -1,65 +1,83 @@
-
 #include "get_next_line.h"
+
+size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 char	*opp_strchr(char *str, int n)
 {
-	char *me, *start;
-	int i;
-	i = 0;
+	int		i;
+	char	*me;
+	char	*start;
 
+	i = 0;
 	if (!str)
 		return (NULL);
-	while (str[i] != n && str[i])
+	while (str[i] != n || str[i] == '\0')
+		i++;
+	if (str[i] == n)
 		i++;
 	me = (char *)malloc((i + 1) * sizeof(char));
 	if (!me)
 		return (NULL);
-        start = me;
-	while (i > 0 && *str)
-		{
-            *me++ = *str++;
-            i--;
-        }
+	start = me;
+	while (i > 0)
+	{
+		*me++ = *str++;
+		i--;
+	}
 	*me = '\0';
 	return (start);
-}
-int main()
-{
-    char s[20]="yas yas yasf fj";
-    printf("%s\n",opp_strchr(s,' '));
+	free(me);
 }
 
-char	*get_next_line(int fd)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	static char	*me;
-	char		buffer[BUFFER_SIZE + 1];
-	int			bytes_read;
-	char		*line;
+	char	*me;
+	size_t	i;
+	size_t	j;
 
-	me = NULL;
-	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
+	if (!s1 && !s2)
+		return (NULL);
+	me = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!me)
+		return (NULL);
+	// free(me);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
 	{
-		buffer[bytes_read] = '\0';
-		if (me)
-			me = ft_strjoin(me, buffer);
-		else
-			me = strdup(buffer);
-		if (strchr(me, '\n'))
-		{
-			line = strdup(me);
-			free(me);
-			me = strchr(line, '\n') + 1;
-			line = opp_strchr(line, '\n');
-			
-			return (line);
-		}
+		me[i] = s1[i];
+		i++;
 	}
-	if (bytes_read == 0 && me)
+	while (s2[j] != '\0')
 	{
-		line = strdup(me);
-		free(me);
-		me = NULL;
-		return (line);
+		me[i] = s2[j];
+		i++;
+		j++;
 	}
+	me[i] = '\0';
+	return (me);
+}
+
+char	*ft_strchr(const char *str, int c)
+{
+	unsigned char me;
+
+	me = c;
+	while (*str)
+	{
+		if (*str == me)
+			return ((char *)str);
+		++str;
+	}
+	if (me == '\0')
+		return ((char *)str);
 	return (NULL);
 }
