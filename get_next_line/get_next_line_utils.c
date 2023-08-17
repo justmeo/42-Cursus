@@ -47,34 +47,6 @@ char	*opp_strchr(char *str, int n)
 	return (start);
 }
 
-// char	*ft_strjoin(char *s1, char *s2)
-// {
-// 	char	*me;
-// 	size_t	i;
-// 	size_t	j;
-
-// 	if (!s1 && !s2)
-// 		return (NULL);
-// 	me = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) - 1) * sizeof(char));
-// 	if (!me)
-// 		return (NULL);
-// 	i = 0;
-// 	j = 0;
-// 	while (s1[i] != '\0')
-// 	{
-// 		me[i] = s1[i];
-// 		i++;
-// 	}
-// 	while (s2[j] != '\0')
-// 	{
-// 		me[i] = s2[j];
-// 		i++;
-// 		j++;
-// 	}
-// 	me[i] = '\0';
-// 	return (me);
-// }
-
 char	*ft_strchr(const char *str, int c)
 {
 	unsigned char	me;

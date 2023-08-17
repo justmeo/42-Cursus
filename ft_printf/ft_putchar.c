@@ -6,13 +6,14 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 10:07:44 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/08/13 11:07:17 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/08/16 10:10:32 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(int c)
 {
 	write(1, &c, 1);
+	return (1);
 }

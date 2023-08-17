@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:14:27 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/08/11 15:35:03 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2023/08/17 07:55:16 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@ char	*rm_str(char *me)
 	while (*me != '\n')
 	{
 		if (*me == '\0')
-		{
-			// free(me);
-			// me = malloc(1 * sizeof(char));
-			// me = NULL;
 			return (NULL);
-		}
 		me++;
 	}
 	if (*me == '\n')
