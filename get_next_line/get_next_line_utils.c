@@ -1,50 +1,77 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/20 10:51:01 by ymrabeti          #+#    #+#             */
+/*   Updated: 2023/08/20 16:17:06 by ymrabeti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strdup(const char *str)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*opp_strchr(char *str, int n)
-{
-	int		i;
 	char	*me;
-	char	*start;
+	char	*point;
+	int		i;
 
-	i = 0;
+	i = ft_strlen(str) + 1;
 	if (!str)
 		return (NULL);
-	if (str[i] == '\0')
-	{
-		free(str);
+	me = (char *)malloc((i) * sizeof(char));
+	if (!me)
 		return (NULL);
-	}
-	while (str[i] != n)
-	{
-		if (str[i] == '\0')
-			return (str);
-		i++;
-	}
-	if (str[i] == n)
-		i++;
+	point = me;
+	while (i--)
+		*me++ = *str++;
+	return (point);
+}
+
+char	*no_need(char **str, int i)
+{
+	char	*me;
+	char	*start;
+	int		j;
+
+	j = 0;
 	me = (char *)malloc((i + 1) * sizeof(char));
 	if (!me)
 		return (NULL);
 	start = me;
 	while (i > 0)
 	{
-		*me++ = *str++;
+		*me++ = (*str)[j++];
 		i--;
 	}
 	*me = '\0';
 	return (start);
+}
+
+char	*opp_strchr(char **str, int n)
+{
+	int	i;
+
+	i = 0;
+	if (!*str)
+		return (NULL);
+	if ((*str)[i] == '\0')
+	{
+		free(*str);
+		*str = NULL;
+		return (NULL);
+	}
+	while ((*str)[i] != n)
+	{
+		if ((*str)[i] == '\0')
+			return (*str);
+		i++;
+	}
+	if ((*str)[i] == n)
+		i++;
+	return (no_need(str, i));
 }
 
 char	*ft_strchr(const char *str, int c)
@@ -61,63 +88,4 @@ char	*ft_strchr(const char *str, int c)
 	if (me == '\0')
 		return ((char *)str);
 	return (NULL);
-}
-
-char	*ft_strdup(const char *str)
-{
-	char	*me;
-
-	if (!str)
-		return (NULL);
-	me = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
-	if (!me)
-		return (NULL);
-	if (me != NULL)
-	{
-		ft_memcpy(me, str, ft_strlen(str) + 1);
-	}
-	return (me);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	char		*i;
-	const char	*j;
-
-	i = (char *)dst;
-	j = (const char *)src;
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	while (n--)
-		*i++ = *j++;
-	return (dst);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	char *str;
-	unsigned int i;
-	unsigned int j;
-
-	i = -1;
-	j = -1;
-	if (!s1)
-	{
-		s1 = (char *)malloc(sizeof(char));
-		if (!s1)
-			return (NULL);
-		s1[0] = '\0';
-	}
-	if (!s2)
-		return (NULL);
-	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1 * sizeof(char));
-	if (!str)
-		return (NULL);
-	while (s1[++i])
-		str[i] = s1[i];
-	while (s2[++j])
-		str[i + j] = s2[j];
-	str[i + j] = '\0';
-	free(s1);
-	return (str);
 }
