@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 10:53:45 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/08/21 14:44:54 by ymrabeti         ###   ########.fr       */
+/*   Created: 2023/08/21 10:19:50 by ymrabeti          #+#    #+#             */
+/*   Updated: 2023/08/21 14:07:21 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <fcntl.h>
 # include <stdbool.h>
@@ -21,7 +21,11 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
+#  define BUFFER_SIZE 1
+# endif
+
+# ifndef H1
+#  define H1 12288
 # endif
 
 char	*get_next_line(int fd);

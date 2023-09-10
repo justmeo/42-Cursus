@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/26 09:14:27 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/08/21 15:30:00 by ymrabeti         ###   ########.fr       */
+/*   Created: 2023/08/21 10:18:32 by ymrabeti          #+#    #+#             */
+/*   Updated: 2023/08/21 14:05:08 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -64,7 +64,7 @@ char	*something(char **me)
 
 char	*get_next_line(int fd)
 {
-	static char	*me;
+	static char	*me[H1];
 	char		*line;
 	char		buffer[BUFFER_SIZE + 1];
 	int			bytes;
@@ -75,43 +75,15 @@ char	*get_next_line(int fd)
 	while (bytes > 0)
 	{
 		buffer[bytes] = '\0';
-		me = ft_strjoin(me, buffer);
-		if (ft_strchr(me, '\n'))
-			return (line = something(&me));
+		me[fd] = ft_strjoin(me[fd], buffer);
+		if (ft_strchr(me[fd], '\n'))
+			return (line = something(&me[fd]));
 		bytes = read(fd, buffer, BUFFER_SIZE);
 	}
-	if (bytes == 0 && me)
-		return (line = something(&me));
-	if (me)
-		free(me);
-	me = NULL;
-	return (me);
+	if (bytes == 0 && me[fd])
+		return (line = something(&me[fd]));
+	if (me[fd])
+		free(me[fd]);
+	me[fd] = NULL;
+	return (me[fd]);
 }
-
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*line;
-
-// 	// Replace "your_file.txt" with the path to the file you want to read
-// 	fd = open("test1.txt", O_RDONLY);
-// 	if (fd < 0)
-// 	{
-// 		perror("Error opening the file");
-// 		return (1);
-// 	}
-// 	// printf("%s$", get_next_line(fd));
-// 	// printf("%s$", get_next_line(fd));
-// 	// printf("%s$", get_next_line(fd));
-// 	// printf("%s$", get_next_line(fd));
-// 	line = get_next_line(fd);
-// 	// printf("%s\n", get_next_line(fd));
-// 	while (line != NULL)
-// 	{
-// 		printf("%s", line);
-// 		free(line);
-// 		line = get_next_line(fd);
-// 	}
-// 	close(fd);
-// 	return (0);
-// }
