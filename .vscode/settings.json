@@ -26,7 +26,9 @@
         "stdlib.h": "c",
         "stdbool.h": "c",
         "limits.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "string.h": "c",
+        "fractol.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
