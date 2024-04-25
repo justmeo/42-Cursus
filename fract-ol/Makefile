@@ -13,11 +13,15 @@
 
 NAME = gg
 
-SRCS = main.c
+SRCS = main.c \
+mandelbrot.c \
+julia.c	\
+mvm.c	\
+utils.c
 
 OBJS = $(SRCS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft
 
