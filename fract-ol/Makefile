@@ -17,19 +17,34 @@ SRCS = main.c \
 mandelbrot.c \
 julia.c	\
 mvm.c	\
-utils.c
+utils.c \
+parsing.c 
 
 OBJS = $(SRCS:.c=.o)
 
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft
 
-all: $(NAME)
+# Minilibx
+MLX_PATH	= minilibx-linux/
+MLX_NAME	= libmlx.a
+MLX			= $(MLX_PATH)$(MLX_NAME)
 
+all: $(NAME) $(MLX)
+
+$(MLX):
+	@echo "Making MiniLibX..."
+	@make -sC $(MLX_PATH)
+	
 $(NAME): $(OBJS)
-	make -C ./mlx
-	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit ./mlx/libmlx.a -o $(NAME)
+	@echo "Compiling fractol..."
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX)  -lXext -lX11 -lm
+	@echo "Fractol ready."
+
+# $(NAME): $(OBJS)
+# 	make -C ./mlx
+# 	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit ./mlx/libmlx.a -o $(NAME)
 
 %.o: %.c
 	cc $(CFLAGS) -c $< -o $@

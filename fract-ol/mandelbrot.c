@@ -12,9 +12,9 @@
 
 #include "fractol.h"
 
-int mandelbrot(t_data c)
+int mandelbrot(t_complex c)
 {
-    t_data   z;
+    t_complex   z;
     int      n;
     double   real;
     double   imag;
@@ -44,12 +44,13 @@ double map(int value, int start1, int stop1, double start2, double stop2)
 	me = start2 + (stop2 - start2) * ((value - start1) / (double)(stop1 - start1));
     return me;
 }
+
 void draw_mandelbrot(t_data *mlx)
 {
     int x = 0;
     int y;
     int color;
-    t_data c;
+    t_complex c;
     
 
     while (x < width)
@@ -67,11 +68,12 @@ void draw_mandelbrot(t_data *mlx)
             color = ((m % 8) * 32) << 16; // This will give a purple color
 
             // Draw the pixel
-            mlx_pixel_put(mlx->mlx, mlx->win, x, y, color);
+            my_mlx_pixel_put(mlx, x, y, color);
 
             y++;
         }
         x++;
     }
+    mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, 0, 0);
 }
 

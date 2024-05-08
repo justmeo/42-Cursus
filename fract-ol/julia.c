@@ -12,7 +12,8 @@
 
 #include "fractol.h"
 
-int julia(t_data z, t_data c)
+
+int julia(t_complex z, t_complex c)
 {
     int n = 0;
     double real, imag;
@@ -32,31 +33,32 @@ int julia(t_data z, t_data c)
     return max_iter;
 }
 
-void draw_julia(t_data *mlx, t_data c)
+void draw_julia(t_data *mlx, t_complex c)
 {
     int color;
     int x = 0;
     int y;
     double scaled_x, scaled_y;
-    t_data z;
+    t_complex z;
 
     while (x < width)
     {
         y = 0;
         while (y < height)
         {
-            scaled_x = map(x, 0, width, -2, 2);
-            scaled_y = map(y, 0, height, -2, 2);
+            scaled_x = map(x, 0, width, -1 * mlx->zoom_level + mlx->center_x, 0.5 * mlx->zoom_level + mlx->center_x);
+            scaled_y = map(y, 0, height, -0.5 * mlx->zoom_level + mlx->center_y, 0.5 * mlx->zoom_level + mlx->center_y);
             z.real = scaled_x;
             z.imag = scaled_y;
             color = julia(z, c);
             // Change color to purple
             color = color % 256;
             color = color | color << 8 | color << 16 | color << 24;
-            mlx_pixel_put(mlx->mlx, mlx->win, x, y, color);
+            my_mlx_pixel_put(mlx, x, y, color);
 
             y++;
         }
         x++;
     }
+    mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, 0, 0);
 }

@@ -12,10 +12,16 @@
 
 #include "fractol.h"
 
-int	valid_fractal(char *name)
+void parse_input(char *input, t_data *mlx)
 {
-	if (!ft_strcmp(name, "mandelbrot"))
-		return (draw_mandelbrot);
-	else if (!ft_strcmp(name, "julia"))
-		return (draw_julia);
+
+    if (strcmp(input, "m") == 0 || strcmp(input, "M") == 0)
+    {
+        mlx->fract = 1; // Mandelbrot
+    }
+    else if (strcmp(input, "j") == 0 || strcmp(input, "J") == 0)
+    {
+        mlx->fract = 2; // Julia
+    }
+
 }

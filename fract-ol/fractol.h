@@ -26,9 +26,9 @@
 
 //  Minilibx info
  
-#define width 1080
-#define height 720
-#define max_iter 800
+#define width 1440
+#define height 1080
+#define max_iter 60
 
 
 //   Keycodes for mlx
@@ -44,25 +44,39 @@
 # define LEFT_CLICK			1
 # define SCROLL_DOWN		5
 
-typedef struct s_data
-{
-	void	*mlx;
-	void	*win;
-	double	real;
-	double	imag;
-	double		zoom_level;
-    double		center_x;
-    double		center_y;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-}			t_data;
+typedef struct  s_complex {
+    double real;
+    double imag;
+}               t_complex;
+
+typedef struct  s_data {
+    void    *mlx;
+    void    *win;
+    void    *img;
+    char    *addr;
+    int     bits_per_pixel;
+    int     line_length;
+    int     endian;
+    double  center_x;
+    double  center_y;
+    double  zoom_level;
+	int fract;
+	int min_x;
+	int max_x;
+	int min_y;
+	int max_y;
+}               t_data;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw_mandelbrot(t_data *mlx);
 double map(int value, int start1, int stop1, double start2, double stop2);
-void draw_julia(t_data *mlx, t_data c);
+void draw_julia(t_data *mlx, t_complex c);
 int handle_scroll(int button, int x, int y, t_data *mlx);
+int key_press(int keycode, t_data *mlx);
+void clean(t_data *mlx);
+void choice (int x, t_data *mlx);
+void parse_input(char *input,t_data *mlx);
+
 
 
 
