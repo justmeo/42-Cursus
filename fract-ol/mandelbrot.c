@@ -45,6 +45,20 @@ double map(int value, int start1, int stop1, double start2, double stop2)
     return me;
 }
 
+unsigned int calculate_color(int m, t_data *mlx) {
+    unsigned int color;
+    if (m == max_iter) // if the point is in the Mandelbrot set, color it black
+        color = 0x000000;
+    else if (mlx->color_shift == 0)
+        color = ((m % 8) * 32) << 16; // Purple
+    else if (mlx->color_shift == 1)
+        color = ((m % 8) * 32) << 8; // Green
+    else
+        color = ((m % 8) * 32); // Blue
+
+    return color;
+}
+
 void draw_mandelbrot(t_data *mlx)
 {
     int x = 0;
@@ -63,9 +77,8 @@ void draw_mandelbrot(t_data *mlx)
             c.imag = map(y, 0, height, -0.5 * mlx->zoom_level + mlx->center_y, 0.5 * mlx->zoom_level + mlx->center_y);
             // Compute the color of the pixel
             int m = mandelbrot(c);
+            color = calculate_color(m, mlx);
 
-            // Change the color to purple
-            color = ((m % 8) * 32) << 16; // This will give a purple color
 
             // Draw the pixel
             my_mlx_pixel_put(mlx, x, y, color);

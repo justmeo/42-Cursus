@@ -66,6 +66,11 @@ int key_press(int keycode, t_data *mlx)
         mlx->center_x += 0.1 / mlx->zoom_level; // Move right
             choice(mlx->fract, mlx);
     }
+    else if (keycode == 32) // 32 is the ASCII value for 'space'
+    {
+        mlx->color_shift = (mlx->color_shift + 1) % 3; // Cycle through 3 different color schemes
+        choice(mlx->fract, mlx);
+    }
     else if (keycode == 65307)
         clean(mlx);
 

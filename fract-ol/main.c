@@ -44,6 +44,8 @@ int	main(int argc, char **argv)
         fprintf(stderr, "Failed to initialize window\n");
         return 1;
     }
+    mlx->color_shift = 0;
+
         mlx_mouse_hook(mlx->win, handle_scroll, mlx);
         parse_input(argv[1],mlx);
         choice(mlx->fract, mlx);

@@ -30,7 +30,6 @@
 #define height 1080
 #define max_iter 60
 
-
 //   Keycodes for mlx
  
 # define A					0
@@ -60,6 +59,7 @@ typedef struct  s_data {
     double  center_x;
     double  center_y;
     double  zoom_level;
+    int color_shift;
 	int fract;
 	int min_x;
 	int max_x;
