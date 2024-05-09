@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:22:07 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/04/24 21:19:54 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/05/09 22:38:06 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,32 +35,32 @@ int handle_scroll(int button, int x, int y, t_data *mlx)
 
 int key_press(int keycode, t_data *mlx)
 {
-    if (keycode == 119) // 119 is the ASCII value for 'w'
+    if (keycode == 13) // 119 is the ASCII value for 'w'
     {
         mlx->center_y -= 0.1 / mlx->zoom_level; // Move up
             choice(mlx->fract, mlx);
     }
-    else if (keycode == 115) // 115 is the ASCII value for 's'
+    else if (keycode == 1) // 115 is the ASCII value for 's'
     {
         mlx->center_y += 0.1 / mlx->zoom_level; // Move down
             choice(mlx->fract, mlx);
     }
-    else if (keycode == 97) // 97 is the ASCII value for 'a'
+    else if (keycode == 0) // 97 is the ASCII value for 'a'
     {
         mlx->center_x -= 0.1 / mlx->zoom_level; // Move left
             choice(mlx->fract, mlx);
     }
-    else if (keycode == 100) // 100 is the ASCII value for 'd'
+    else if (keycode == 2) // 100 is the ASCII value for 'd'
     {
         mlx->center_x += 0.1 / mlx->zoom_level; // Move right
             choice(mlx->fract, mlx);
     }
-    else if (keycode == 32) // 32 is the ASCII value for 'space'
+    else if (keycode == 49) // 32 is the ASCII value for 'space'
     {
         mlx->color_shift = (mlx->color_shift + 1) % 3; // Cycle through 3 different color schemes
         choice(mlx->fract, mlx);
     }
-    else if (keycode == 65307)
+    else if (keycode == 53)
         clean(mlx);
 
     return (0);

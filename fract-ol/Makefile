@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 
-NAME = gg
+NAME = fractol
 
 SRCS = main.c \
 mandelbrot.c \
@@ -28,24 +28,24 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT = libft
 
 # Minilibx
-MLX_PATH	= minilibx-linux/
+MLX_PATH	= mlx/
 MLX_NAME	= libmlx.a
 MLX			= $(MLX_PATH)$(MLX_NAME)
 
 all: $(NAME) $(MLX)
 
-$(MLX):
-	@echo "Making MiniLibX..."
-	@make -sC $(MLX_PATH)
+# $(MLX):
+# 	@echo "Making MiniLibX..."
+# 	@make -sC $(MLX_PATH)
 	
-$(NAME): $(OBJS)
-	@echo "Compiling fractol..."
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX)  -lXext -lX11 -lm
-	@echo "Fractol ready."
-
 # $(NAME): $(OBJS)
-# 	make -C ./mlx
-# 	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit ./mlx/libmlx.a -o $(NAME)
+# 	@echo "Compiling fractol..."
+# 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX)  -lXext -lX11 -lm
+# 	@echo "Fractol ready."
+
+$(NAME): $(OBJS)
+	make -C ./mlx
+	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit ./mlx/libmlx.a -o $(NAME)
 
 %.o: %.c
 	cc $(CFLAGS) -c $< -o $@
