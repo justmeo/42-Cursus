@@ -18,7 +18,8 @@ mandelbrot.c \
 julia.c	\
 mvm.c	\
 utils.c \
-parsing.c 
+parsing.c \
+msg.c 
 
 OBJS = $(SRCS:.c=.o)
 

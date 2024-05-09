@@ -76,6 +76,9 @@ int key_press(int keycode, t_data *mlx);
 void clean(t_data *mlx);
 void choice (int x, t_data *mlx);
 void parse_input(char *input,t_data *mlx);
+unsigned int calculate_color(int m, t_data *mlx);
+void	ft_putendl_fd(char *s, int fd);
+void	print_fractal_options(void);
 
 
 

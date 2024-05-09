@@ -33,10 +33,7 @@ t_data	*init_window(char *title)
 int	main(int argc, char **argv)
 {
 
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <1 for Mandelbrot, 2 for Julia>\n", argv[0]);
-        return 1;
-    }
+
 
     t_data *mlx = init_window("Fractal Viewer");
     if (!mlx)
@@ -45,9 +42,12 @@ int	main(int argc, char **argv)
         return 1;
     }
     mlx->color_shift = 0;
-
-        mlx_mouse_hook(mlx->win, handle_scroll, mlx);
         parse_input(argv[1],mlx);
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <M for Mandelbrot, J for Julia>\n", argv[0]);
+        return 1;
+    }
+        mlx_mouse_hook(mlx->win, handle_scroll, mlx);
         choice(mlx->fract, mlx);
         mlx_hook(mlx->win, 2, 1L<<0, key_press, mlx);
 

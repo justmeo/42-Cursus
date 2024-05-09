@@ -23,5 +23,10 @@ void parse_input(char *input, t_data *mlx)
     {
         mlx->fract = 2; // Julia
     }
+    else
+    {
+        print_fractal_options();
+        exit(1);
+    }
 
 }
