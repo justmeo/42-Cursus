@@ -49,6 +49,7 @@ int	main(int argc, char **argv)
     }
         mlx_mouse_hook(mlx->win, handle_scroll, mlx);
         choice(mlx->fract, mlx);
+        print_controls();
         mlx_hook(mlx->win, 2, 1L<<0, key_press, mlx);
 
     mlx_loop(mlx->mlx);

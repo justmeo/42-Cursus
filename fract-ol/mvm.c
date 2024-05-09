@@ -12,32 +12,21 @@
 
 #include "fractol.h"
 
-
-
-void zoom(t_data *mlx, double zoom) 
-{
-    
-    mlx->center_x = mlx->min_x + (mlx->max_x - mlx->min_x) / 2;
-    mlx->center_y = mlx->min_y + (mlx->max_y - mlx->min_y) / 2;
-    
-    mlx->min_x = mlx->center_x - (mlx->center_x - mlx->min_x) * zoom;
-    mlx->max_x = mlx->center_x + (mlx->max_x - mlx->center_x) * zoom;
-    mlx->min_y = mlx->center_y - (mlx->center_y - mlx->min_y) * zoom;
-    mlx->max_y = mlx->center_y + (mlx->max_y - mlx->center_y) * zoom;
-}
-
 int handle_scroll(int button, int x, int y, t_data *mlx)
 {
+    double zoom_factor = 1.1;
+    double mouse_x_scaled = (x - width / 2) / (0.5 * width);
+    double mouse_y_scaled = (y - height / 2) / (0.5 * height);
 
     // Increase or decrease the zoom level based on the scroll direction
     if (button == 4) // Scroll up
-        mlx->zoom_level *= 1.1;
+        mlx->zoom_level *= zoom_factor;
     else if (button == 5) // Scroll down
-        mlx->zoom_level /= 1.1;
+        mlx->zoom_level /= zoom_factor;
 
     // Adjust the center of the view based on the mouse position
-    mlx->center_x = (x - width / 2) / (0.5 * mlx->zoom_level * width) ;
-    mlx->center_y = (y - height / 2) / (0.5 * mlx->zoom_level * height) ;
+    mlx->center_x += (mouse_x_scaled - mlx->center_x) / (mlx->zoom_level * zoom_factor);
+    mlx->center_y += (mouse_y_scaled - mlx->center_y) / (mlx->zoom_level * zoom_factor);
 
     // Redraw the Mandelbrot set with the new zoom level and center
     choice(mlx->fract, mlx);

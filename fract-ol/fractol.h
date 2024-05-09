@@ -79,6 +79,8 @@ void parse_input(char *input,t_data *mlx);
 unsigned int calculate_color(int m, t_data *mlx);
 void	ft_putendl_fd(char *s, int fd);
 void	print_fractal_options(void);
+void	print_controls(void);
+
 
 
 

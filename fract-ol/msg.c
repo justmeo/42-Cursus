@@ -36,3 +36,15 @@ void	print_fractal_options(void)
 	ft_putendl_fd("\e[36mUsage example:\t", 1);
 	ft_putendl_fd("./fractol J\n\t\t./fractol J 0.285 0.01\e[0m", 1);
 }
+
+void	print_controls(void)
+{
+	ft_putendl_fd("\n+===============  Controls  =========================+", 1);
+	ft_putendl_fd("WASD or arrow keys\tmove view.", 1);
+	ft_putendl_fd("+/- or scroll wheel\tzoom in and out.", 1);
+	ft_putendl_fd("Spacebar\t\tchange color schemes.", 1);
+	ft_putendl_fd("Left click\t\tshift Julia set [Julia only].", 1);
+	ft_putendl_fd("1, 2, 3, 4, 5\t\tswitch fractals.", 1);
+	ft_putendl_fd("ESC or close window\tquit fract'ol.", 1);
+	ft_putendl_fd("+====================================================+\n", 1);
+}

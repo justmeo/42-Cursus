@@ -12,7 +12,6 @@
 
 #include "fractol.h"
 
-
 int julia(t_complex z, t_complex c)
 {
     int n = 0;
