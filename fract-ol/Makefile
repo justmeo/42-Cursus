@@ -13,13 +13,14 @@
 
 NAME = fractol
 
-SRCS = main.c \
-mandelbrot.c \
-julia.c	\
-mvm.c	\
-utils.c \
-parsing.c \
-msg.c 
+SRCS = srcs/main.c \
+srcs/mandelbrot.c \
+srcs/julia.c \
+srcs/mvm.c \
+srcs/utils.c \
+srcs/parsing.c \
+srcs/msg.c 	\
+srcs/burningship.c 
 
 OBJS = $(SRCS:.c=.o)
 
