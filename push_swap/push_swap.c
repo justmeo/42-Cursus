@@ -6,13 +6,14 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:59:33 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/05/28 15:46:26 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:30:22 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 #include <stdio.h>
+
 
 
 //split
