@@ -48,7 +48,10 @@
         "system_error": "c",
         "tuple": "c",
         "type_traits": "c",
-        "vector": "c"
+        "vector": "c",
+        "array": "c",
+        "istream": "c",
+        "utility": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -5,35 +5,41 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/22 13:43:59 by ymrabeti          #+#    #+#              #
-#    Updated: 2024/05/27 14:51:26 by ymrabeti         ###   ########.fr        #
+#    Created: 2023/08/13 11:10:15 by ymrabeti          #+#    #+#              #
+#    Updated: 2024/05/27 14:40:56 by ymrabeti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
+
+NAME = libftprintf.a
+
 CFLAGS = -Wall -Wextra -Werror
 
-SERVER = server
-CLIENT = client
+SRCS = ft_printf.c \
+ft_putchar.c \
+ft_putstr.c \
+ft_putnbr.c \
+ft_puthex_low.c \
+ft_puthex_up.c \
+ft_unputnbr.c \
+ft_putoint.c 
 
-SRC_SERVER = server.c
-SRC_CLIENT = client.c
 
-FT_PRINTF = ft_printf.a
+OBJS = $(SRCS:.c=.o)
 
-all: $(FT_PRINTF) $(SERVER) $(CLIENT)
+all: $(NAME)
 
-$(FT_PRINTF):
-	make -C ./ft_printf
+$(NAME): $(OBJS) 
+	ar -rcs $(NAME) $(OBJS)
 
-$(SERVER): $(FT_PRINTF)
-	$(CC) $(CFLAGS) -o $(SERVER) $(SRC_SERVER) -L./ft_printf -lftprintf
-
-$(CLIENT): $(FT_PRINTF)
-	$(CC) $(CFLAGS) -o $(CLIENT) $(SRC_CLIENT) -L./ft_printf -lftprintf
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(SERVER) $(CLIENT)
-	make clean -C ./ft_printf
+	rm -f $(OBJS) 
 
-re: clean all
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
