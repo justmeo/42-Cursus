@@ -51,7 +51,8 @@
         "vector": "c",
         "array": "c",
         "istream": "c",
-        "utility": "c"
+        "utility": "c",
+        "push_swap.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
