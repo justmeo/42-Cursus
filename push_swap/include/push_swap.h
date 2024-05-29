@@ -21,7 +21,25 @@
 #include <unistd.h>
 #include <limits.h>
 
-// Define any constants or macros here
+//  structs
+
+typedef struct s_atoll
+{
+    long long result;
+    long long prev_result;
+    int sign;
+}               t_atoll;
+
+// Usful functions
+
+long long int ft_atoll(const char *str, int *error);
+char	**ft_split(char const *s, char c);
+
+
+// Define any structs here
+
+
+
 
 // Declare function prototypes here
 

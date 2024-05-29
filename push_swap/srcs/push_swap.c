@@ -10,136 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 
-
-//split
-
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	while (*src && size > 1)
-	{
-		*dest++ = *src++;
-		size--;
-		i++;
-	}
-	if (size > 0)
-		*dest = '\0';
-	while (*src++)
-		i++;
-	return (i);
-}
-
-static size_t	size(const char *str, char x)
-{
-	size_t	i;
-
-	i = 0;
-	while (*str)
-	{
-		if (*str == x)
-		{
-			str++;
-		}
-		else
-		{
-			i++;
-			while (*str != x)
-			{
-				str++;
-				if (*str == '\0')
-					return (i);
-			}
-		}
-	}
-	return (i);
-}
-
-static size_t	sizme(const char *str, char x)
-{
-	size_t	i;
-
-	i = 0;
-	while (*str)
-	{
-		if (*str == x)
-		{
-			str++;
-		}
-		else
-		{
-			i++;
-			while (*str != x)
-			{
-				str++;
-				i++;
-				if (*str == '\0')
-					return (i);
-			}
-		}
-	}
-	return (i);
-}
-
-static char	**copie(char const *s, char c)
-{
-	char	**me;
-	int		i;
-	int		j;
-	int		k;
-
-	i = 0;
-	j = 0;
-	me = (char **)malloc(sizeof(char *) * (size(s, c) + 1));
-	if (!me)
-		return (NULL);
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		k = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > k)
-		{
-			me[j] = (char *)malloc(sizeof(char) * (sizme(s, c) + 1));
-			ft_strlcpy(me[j++], s + k, i - k + 1);
-		}
-	}
-	me[j] = NULL;
-	return (me);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**me;
-
-	if (!s)
-		return (NULL);
-	me = copie(s, c);
-	if (!me)
-		return (NULL);
-	return (me);
-}
-
-//split 
-// qsort
-void ft_swap(int* a, int* b) 
+void ft_swap(long long int* a, long long int* b) 
 { 
-    int t = *a; 
+    long long int t = *a; 
     *a = *b; 
     *b = t; 
 } 
 
-int partition (int arr[], int low, int high) 
+int partition(long long int arr[], int low, int high) 
 { 
-    int pivot = arr[high]; 
+    long long int pivot = arr[high]; 
     int i = (low - 1); 
 
     for (int j = low; j <= high - 1; j++) 
@@ -154,7 +39,7 @@ int partition (int arr[], int low, int high)
     return (i + 1); 
 } 
 
-void ft_qsort(int arr[], int low, int high) 
+void ft_qsort(long long int arr[], int low, int high) 
 { 
     if (low < high) 
     { 
@@ -165,6 +50,7 @@ void ft_qsort(int arr[], int low, int high)
     } 
 } 
 // till here
+
 
 
 int	is_number(char *str)
@@ -181,7 +67,7 @@ int	is_number(char *str)
     return (1);
 }
 
-int	is_duplicate(int *arr, int len, int num)
+int	is_duplicate(long long int *arr, int len, long long int num) // change arr and num to long long int
 {
     int i;
     for (i = 0; i < len; i++)
@@ -192,17 +78,17 @@ int	is_duplicate(int *arr, int len, int num)
     return (0);
 }
 
-
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-    int *arr;
+    long long int *arr;
+    long long int num;
     int i;
     int j;
-    int num;
     char **split_arg;
     int k;
+	int error;
 
-    arr = (int *)malloc(sizeof(int) * (ac - 1));
+    arr = (long long int *)malloc(sizeof(long long int) * (ac - 1));
     if (!arr)
         return (1);
     i = 1;
@@ -219,10 +105,16 @@ int	main(int ac, char **av)
                 free(arr);
                 return (1);
             }
-            num = atoi(split_arg[k]);
+            num = ft_atoll(split_arg[k], &error);
+            if (error)
+            {
+                printf("Error: Number out of range %s\n", split_arg[k]);
+            free(arr);
+            return (1);
+        }
             if (is_duplicate(arr, j, num))
             {
-                printf("Error: Duplicate number %d\n", num);
+                printf("Error: Duplicate number %lld\n", num);
                 free(arr);
                 return (1);
             }
@@ -231,12 +123,10 @@ int	main(int ac, char **av)
         }
         i++;
     }
-    // sort the array
     ft_qsort(arr, 0, j - 1);
-    // print the sorted array
     for (i = 0; i < j; i++)
     {
-        printf("%d ", arr[i]);
+        printf("%lld ", arr[i]);
     }
     printf("\n");
     free(arr);
