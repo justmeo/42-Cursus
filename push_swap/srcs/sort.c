@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 04:42:02 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/06/13 17:58:32 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:58:28 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,31 +57,67 @@ int	get_max_bits(long long int *array, int size)
 	return (bits);
 }
 
-void	radix_sort(long long int *array, int size)
-{
-	int				max_bits;
-	long long int	*temp_array;
-	int				j;
+// void	radix_sort(long long int *array, int size)
+// {
+// 	int				max_bits;
+// 	long long int	*temp_array;
+// 	int				j = 0;;
+// 	int len;
+// 	int i = -1;
 
-	max_bits = get_max_bits(array, size);
-	temp_array = malloc(size * sizeof(long long int));
-	if (temp_array == NULL)
-	{
-		// Handle memory allocation failure
-		return ;
-	}
+// 	max_bits = get_max_bits(array, size);
+// 	temp_array = malloc(size * sizeof(long long int));
+// 	if (temp_array == NULL)
+// 	{
+// 		// Handle memory allocation failure
+// 		return ;
+// 	}
+//     while (++i < max_bits)
+// 	{
+// 		len = size;
+// 		while (len-- > 0)
+// 		{
+// 			if (((array[j] >> i) & 1) == 1)
+// 				ra(array,size);
+// 			else
+// 				pb(array,&size, temp_array,&size);
+// 		}
+// 		while (*temp_array)
+// 			pa(array,&size, temp_array,&size);
+
+// 	}
+// 	free(temp_array);
+// }
+
+
+void radix_sort(long long int *array, int size)
+{
+    int max_bits;
+    long long int *temp_array;
+    int j = 0;
+    int len;
+    int i = -1;
+
+    max_bits = get_max_bits(array, size);
+    temp_array = malloc(size * sizeof(long long int));
+    if (temp_array == NULL)
+    {
+        // Handle memory allocation failure
+        return;
+    }
     while (++i < max_bits)
-	{
-		len = stack_len(*stack_a);
-		while (len-- > 0)
-		{
-			if (((array[k] >> i) & 1) == 1)
-				ra(stack_a);
-			else
-				pb(stack_a, stack_b);
-		}
-		while (*stack_b)
-			pa(stack_a, stack_b);
-	}
-	free(temp_array);
+    {
+        len = size;
+        while (len-- > 0)
+        {
+            if (((array[j] >> i) & 1) == 1)
+                ra(array, size);
+            else
+                pb(array, &size, temp_array, &size);
+        }
+        // Copy elements back from temp_array to array
+        while (size > 0)
+            pa(array, &size, temp_array, &size);
+    }
+    free(temp_array);
 }
