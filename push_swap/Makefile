@@ -8,7 +8,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = srcs/push_swap.c \
 srcs/ft_split.c \
-srcs/ft_atoll.c 
+srcs/ft_atoll.c  \
+srcs/mvm.c	\
+srcs/sort.c
 
 
 

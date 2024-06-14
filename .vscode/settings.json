@@ -52,7 +52,8 @@
         "array": "c",
         "istream": "c",
         "utility": "c",
-        "push_swap.h": "c"
+        "push_swap.h": "c",
+        "unordered_map": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

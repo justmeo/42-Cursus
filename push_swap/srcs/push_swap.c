@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:59:33 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/05/28 16:30:22 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:00:57 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int	is_duplicate(long long int *arr, int len, long long int num) // change arr a
     return (0);
 }
 
+
+
 int main(int ac, char **av)
 {
     long long int *arr;
@@ -88,6 +90,11 @@ int main(int ac, char **av)
     int k;
 	int error;
 
+    if(ac == 1)
+    {
+        printf("Error: Invalid input\n");
+        return 0;
+    }
     arr = (long long int *)malloc(sizeof(long long int) * (ac - 1));
     if (!arr)
         return (1);
@@ -123,7 +130,20 @@ int main(int ac, char **av)
         }
         i++;
     }
-    ft_qsort(arr, 0, j - 1);
+    if(ac == 3)
+        two_digit(arr);
+    else if(ac == 4)
+        sort_three_digits(arr);
+    else if(ac > 4)
+        {
+        //    long long int *p = (long long int *)malloc(sizeof(long long int) * (ac - 1));
+        //         if (!p)
+        //         return (1);
+            radix_sort(arr,ac - 1);
+        }
+
+
+    // ft_qsort(arr, 0, j - 1);
     for (i = 0; i < j; i++)
     {
         printf("%lld ", arr[i]);

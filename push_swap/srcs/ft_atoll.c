@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/11 04:42:16 by ymrabeti          #+#    #+#             */
+/*   Updated: 2024/06/11 04:42:17 by ymrabeti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 
 #include "../include/push_swap.h"
@@ -27,6 +39,8 @@ long long int ft_atoll(const char *str, int *error)
         atoll.sign = -1;
         i++;
     }
+    else if(str[i] == '+')
+        i++;
     while (str[i] >= '0' && str[i] <= '9')
     {
         atoll.prev_result = atoll.result;
