@@ -21,6 +21,9 @@
 #include <unistd.h>
 #include <limits.h>
 #include <string.h>
+#include <stdbool.h>
+#include "../ft_printf/ft_printf.h"
+
 
 //  structs
 
@@ -34,26 +37,30 @@ typedef struct s_atoll
 // Usful functions
 
 long long int ft_atoll(const char *str, int *error);
+int	is_number(char *str);
+int	is_duplicate(long long int *arr, int len, long long int num);
 char	**ft_split(char const *s, char c);
+void two_digit(long long int *me);
+void sort_three_digits(long long int *me) ;
+void	radix_sort(long long int *array_a, int size_a);
+
+// mouvement
 void sa(long long int *a, int len_a,int i);
 void pa(long long int *a, int *len_a, long long int *b, int *len_b);
 void pb(long long int *a, int *len_a, long long int *b, int *len_b);
 void ra(long long int *a, int len_a);
-void two_digit(long long int *me);
-void sort_three_digits(long long int *me) ;
 void rb(long long int *b, int len_b);
 void rra(long long int *a, int len_a);
 void rrb(long long int *b, int len_b);
-void radix_sort(long long int *array, int size);
 
 
+// void sort(long long int *array, int size, long long int *temp_array, int temp_size);
 
 
-// Define any structs here
 
 
 
 
 // Declare function prototypes here
 
-#endif // PUSH_SWAP_H
+#endif 
