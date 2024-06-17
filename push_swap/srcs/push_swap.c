@@ -27,6 +27,55 @@ void free_split_arg(char **split_arg)
     free(split_arg);
 }
 
+// int	main(int ac, char **av)
+// {
+//     long long int *arr;
+//     int i;
+//     int j;
+//     long long int num;
+//     char **split_arg;
+//     int k;
+
+//     arr = (long long int *)malloc(sizeof(long long int) * (ac - 1));
+//     if (!arr)
+//         return (1);
+//     i = 1;
+//     j = 0;
+//     while (i < ac)
+//     {
+//         split_arg = ft_split(av[i], ' ');
+//         k = 0;
+//         while (split_arg[k])
+//         {
+//             if (!is_number(split_arg[k]))
+//             {
+//                 printf("Error: Invalid number %s\n", split_arg[k]);
+//                 free(arr);
+//                 return (1);
+//             }
+//             num = atoi(split_arg[k]);
+//             if (is_duplicate(arr, j, num))
+//             {
+//                 printf("Error: Duplicate number %lldd\n", num);
+//                 free(arr);
+//                 return (1);
+//             }
+//             arr[j++] = num;
+//             k++;
+//         }
+//         i++;
+//     }
+
+//     // print the sorted array
+//     for (i = 0; i < j; i++)
+//     {
+//         printf("%lld ", arr[i]);
+//     }
+//     printf("\n");
+//     free(arr);
+//     return (0);
+// }
+
 long long int *parse_arguments(int ac, char **av, int *error)
 {
     long long int *arr;
@@ -89,7 +138,7 @@ void sort_numbers(long long int *arr, int ac)
         radix_sort(arr,ac - 1);
     // for (i = 0; i < ac - 1; i++)
     // {
-    //     ft_printf("%lld ", arr[i]);
+    //     ft_printf("%d ", arr[i]);
     // }
     // ft_printf("\n");
     free(arr);

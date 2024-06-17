@@ -86,10 +86,7 @@ void radix_sort(long long int *array_a, int size_a)
     int max_bits = get_max_bits(array_a, size_a);
     long long int *array_b = malloc(size_a * sizeof(long long int));
     if (array_b == NULL)
-    {
-        // Handle memory allocation failure
         return;
-    }
     int size_b = 0;
 
     for (int i = 0; i < max_bits; i++)
@@ -105,6 +102,5 @@ void radix_sort(long long int *array_a, int size_a)
         while (size_b > 0)
             pa(array_a, &size_a, array_b, &size_b);
     }
-
     free(array_b);
 }
