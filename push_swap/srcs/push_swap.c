@@ -6,158 +6,122 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:59:33 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/06/13 17:00:57 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/06/18 13:04:51 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-
-
-void free_split_arg(char **split_arg)
+int	size(int ac, char **av)
 {
-    char **temp = split_arg;
-    while (*temp)
-    {
-        free(*temp);
-        temp++;
-    }
-    free(split_arg);
+	char	**split_arg;
+	int		k;
+	int		i;
+	int		x;
+
+	i = 1;
+	x = 0;
+	while (i < ac)
+	{
+		split_arg = ft_split(av[i], ' ');
+		k = 0;
+		while (split_arg[k])
+		{
+			k++;
+			x++;
+		}
+		i++;
+		free_split_arg(split_arg);
+	}
+	return (x);
 }
 
-// int	main(int ac, char **av)
-// {
-//     long long int *arr;
-//     int i;
-//     int j;
-//     long long int num;
-//     char **split_arg;
-//     int k;
-
-//     arr = (long long int *)malloc(sizeof(long long int) * (ac - 1));
-//     if (!arr)
-//         return (1);
-//     i = 1;
-//     j = 0;
-//     while (i < ac)
-//     {
-//         split_arg = ft_split(av[i], ' ');
-//         k = 0;
-//         while (split_arg[k])
-//         {
-//             if (!is_number(split_arg[k]))
-//             {
-//                 printf("Error: Invalid number %s\n", split_arg[k]);
-//                 free(arr);
-//                 return (1);
-//             }
-//             num = atoi(split_arg[k]);
-//             if (is_duplicate(arr, j, num))
-//             {
-//                 printf("Error: Duplicate number %lldd\n", num);
-//                 free(arr);
-//                 return (1);
-//             }
-//             arr[j++] = num;
-//             k++;
-//         }
-//         i++;
-//     }
-
-//     // print the sorted array
-//     for (i = 0; i < j; i++)
-//     {
-//         printf("%lld ", arr[i]);
-//     }
-//     printf("\n");
-//     free(arr);
-//     return (0);
-// }
-
-long long int *parse_arguments(int ac, char **av, int *error)
+long long int	*parse_arguments(int ac, char **av, int *error)
 {
-    long long int *arr;
-    long long int num;
-    int i;
-    int j;
-    char **split_arg;
-    int k;
+	long long int	*arr;
+	int				i[3];
+	char			**split_arg;
 
-  arr = (long long int *)malloc(sizeof(long long int) * (ac - 1));
-if (!arr)
-    return NULL;
-i = 1;
-j = 0;
-while (i < ac)
-{
-    split_arg = ft_split(av[i], ' ');
-    k = 0;
-    while (split_arg[k])
-    {
-        if (!is_number(split_arg[k]))
-        {
-            ft_printf("Error: Invalid number %s\n", split_arg[k]);
-            free(arr);
-            free_split_arg(split_arg); // free split_arg before returning
-            return NULL;
-        }
-        num = ft_atoll(split_arg[k], error);
-        if (*error)
-        {
-            ft_printf("Error: Number out of range %s\n", split_arg[k]);
-            free(arr);
-            free_split_arg(split_arg); // free split_arg before returning
-            return NULL;
-        }
-        if (is_duplicate(arr, j, num))
-        {
-            ft_printf("Error: Duplicate number \n");
-            free(arr);
-            free_split_arg(split_arg); // free split_arg before returning
-            return NULL;
-        }
-        arr[j++] = num;
-        k++;
-    }
-    free_split_arg(split_arg); // free split_arg after using it
-    i++;
-}
-return arr;
+	arr = (long long int *)malloc(sizeof(long long int) * (size(ac, av)));
+	if (!arr)
+		return (NULL);
+	i[0] = 1;
+	i[1] = 0;
+	i[2] = 0;
+	while (i[0] < ac)
+	{
+		split_arg = ft_split(av[i[0]], ' ');
+		if (!error_loop(split_arg, arr, i, error))
+			return (NULL);
+		free_split_arg(split_arg);
+		i[0]++;
+	}
+	return (arr);
 }
 
-void sort_numbers(long long int *arr, int ac)
+long long int	*kk(long long int *arr, int ac, char **av)
 {
-    // int i =0;
-    if(ac == 3)
-        two_digit(arr);
-    else if(ac == 4)
-        sort_three_digits(arr);
-    else if(ac > 4)
-        radix_sort(arr,ac - 1);
-    // for (i = 0; i < ac - 1; i++)
-    // {
-    //     ft_printf("%d ", arr[i]);
-    // }
-    // ft_printf("\n");
-    free(arr);
+	int				i[3];
+	long long int	*gg;
+	long long int	*arr_copy;
+	long long int	temp;
+
+	i[0] = 0;
+	i[1] = 0;
+	temp = 0;
+	i[2] = size(ac, av);
+	gg = malloc(sizeof(long long int) * i[2]);
+	arr_copy = malloc(sizeof(long long int) * i[2]);
+	while (i[0] < i[2])
+	{
+		arr_copy[i[0]] = arr[i[0]];
+		i[0]++;
+	}
+	func1(gg, i);
+	func2(arr_copy, temp, i);
+	func3(arr_copy, gg, arr, i);
+	free(arr_copy);
+	return (gg);
 }
 
-int main(int ac, char **av)
+void	sort_numbers(long long int *arr, int ac, char **av)
 {
-    long long int *arr;
-    int error;
+	int i = 0;
+	if (size(ac, av) == 2)
+		two_digit(arr);
+	else if (size(ac, av) == 3)
+		sort_three_digits(arr);
 
-    if(ac == 1)
-    {
-        ft_printf("Error: Invalid input\n");
-        return 0;
-    }
-    arr = parse_arguments(ac, av, &error);
-    if (!arr)
-        return 1;
-    sort_numbers(arr, ac);
-    
-    return 0;
+	else if (size(ac, av) > 5 || size(ac, av) == 4)
+		radix_sort(arr, size(ac, av));
+	while(i < size(ac,av))
+	{
+		ft_printf("%d",arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
+int	main(int ac, char **av)
+{
+	long long int	*arr;
+	long long int	*tmp;
+	int				error;
+
+	if (ac == 1)
+	{
+		ft_printf("Error: Invalid input\n");
+		return (0);
+	}
+	tmp = parse_arguments(ac, av, &error);
+	if (!tmp)
+		return (1);
+	arr = kk(tmp, ac, av);
+	if (!arr)
+		return (1);
+	sort_numbers(arr, ac, av);
+	free(tmp);
+	return (0);
 }

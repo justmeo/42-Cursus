@@ -1,19 +1,23 @@
-
-
 CC = cc
 
 NAME = pushswap
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
-SRCS = srcs/push_swap.c \
+SRCS = srcs/mvm/pa.c\
+srcs/mvm/pb.c\
+srcs/mvm/ra.c\
+srcs/mvm/rb.c\
+srcs/mvm/rra.c\
+srcs/mvm/sa.c\
+srcs/mvm/sb.c\
+srcs/push_swap.c \
 srcs/ft_split.c \
 srcs/ft_atoll.c  \
-srcs/mvm.c	\
 srcs/sort.c \
-srcs/utils.c 
-
-
+srcs/utils.c \
+srcs/push_swap_utils.c \
+srcs/utils_2.c
 
 FT_PRINTF = ft_printf.a
 OBJS = $(SRCS:.c=.o)

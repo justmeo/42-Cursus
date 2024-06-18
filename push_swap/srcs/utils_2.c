@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/18 07:06:05 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/06/18 13:04:23 by ymrabeti         ###   ########.fr       */
+/*   Created: 2024/06/11 04:42:07 by ymrabeti          #+#    #+#             */
+/*   Updated: 2024/06/18 08:46:52 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
-void	pb(long long int *array, int *size, long long int *temp_array,
-		int *temp_size)
+void	free_split_arg(char **split_arg)
 {
-	int	i;
+	char	**temp;
 
-	i = 0;
-	temp_array[*temp_size] = array[0];
-	while (i < *size - 1)
+	temp = split_arg;
+	while (*temp)
 	{
-		array[i] = array[i + 1];
+		free(*temp);
+		temp++;
+	}
+	free(split_arg);
+}
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned int	i;
+	unsigned char	*v;
+
+	v = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+	{
+		v[i] = c;
 		i++;
 	}
-	(*size)--;
-	(*temp_size)++;
-	ft_printf("pb\n");
+	b = v;
+	return (v);
 }
