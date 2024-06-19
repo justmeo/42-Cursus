@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 06:55:22 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/06/18 08:55:54 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/06/19 23:32:42 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	is_number(char *str)
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
+	if (str[i] == '\0')
+		return (0);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')

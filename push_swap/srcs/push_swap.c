@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:59:33 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/06/18 13:04:51 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/06/20 02:24:41 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	size(int ac, char **av)
+int	sizep(int ac, char **av)
 {
 	char	**split_arg;
 	int		k;
@@ -44,7 +44,7 @@ long long int	*parse_arguments(int ac, char **av, int *error)
 	int				i[3];
 	char			**split_arg;
 
-	arr = (long long int *)malloc(sizeof(long long int) * (size(ac, av)));
+	arr = (long long int *)malloc(sizeof(long long int) * (sizep(ac, av)));
 	if (!arr)
 		return (NULL);
 	i[0] = 1;
@@ -71,7 +71,7 @@ long long int	*kk(long long int *arr, int ac, char **av)
 	i[0] = 0;
 	i[1] = 0;
 	temp = 0;
-	i[2] = size(ac, av);
+	i[2] = sizep(ac, av);
 	gg = malloc(sizeof(long long int) * i[2]);
 	arr_copy = malloc(sizeof(long long int) * i[2]);
 	while (i[0] < i[2])
@@ -88,20 +88,14 @@ long long int	*kk(long long int *arr, int ac, char **av)
 
 void	sort_numbers(long long int *arr, int ac, char **av)
 {
-	int i = 0;
-	if (size(ac, av) == 2)
+	if (sizep(ac, av) == 2)
 		two_digit(arr);
-	else if (size(ac, av) == 3)
+	else if (sizep(ac, av) == 3)
 		sort_three_digits(arr);
-	else if (size(ac,av) == 5)
+	else if (sizep(ac, av) == 5)
 		sort_five_numbers(arr);
-	else if (size(ac, av) > 5 || size(ac, av) == 4)
-		radix_sort(arr, size(ac, av));
-	while(i < size(ac,av))
-	{
-		ft_printf("%d",arr[i]);
-		i++;
-	}
+	else if (sizep(ac, av) > 5 || sizep(ac, av) == 4)
+		radix_sort(arr, sizep(ac, av));
 	free(arr);
 }
 
@@ -112,8 +106,10 @@ int	main(int ac, char **av)
 	int				error;
 
 	if (ac == 1)
+		return (0);
+	if (handle_space(av) == 1)
 	{
-		ft_printf("Error: Invalid input\n");
+		ft_printf("Error: Invalid number\n");
 		return (0);
 	}
 	tmp = parse_arguments(ac, av, &error);
@@ -122,6 +118,11 @@ int	main(int ac, char **av)
 	arr = kk(tmp, ac, av);
 	if (!arr)
 		return (1);
+	if (check_per(arr, ac, av) == 1)
+	{
+		free(tmp);
+		return (0);
+	}
 	sort_numbers(arr, ac, av);
 	free(tmp);
 	return (0);
