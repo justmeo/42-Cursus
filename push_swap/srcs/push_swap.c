@@ -93,7 +93,8 @@ void	sort_numbers(long long int *arr, int ac, char **av)
 		two_digit(arr);
 	else if (size(ac, av) == 3)
 		sort_three_digits(arr);
-
+	else if (size(ac,av) == 5)
+		sort_five_numbers(arr);
 	else if (size(ac, av) > 5 || size(ac, av) == 4)
 		radix_sort(arr, size(ac, av));
 	while(i < size(ac,av))

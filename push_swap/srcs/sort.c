@@ -40,6 +40,40 @@ void	sort_three_digits(long long int *me)
 	}
 }
 
+void sort_five_numbers(long long int *a)
+{
+    long long int b[2];
+    int a_size = 5;
+    int b_size = 0;
+
+    // Push the smallest number to b
+    for (int i = 0; i < 2; i++) {
+        int min_index = 0;
+        for (int j = 1; j < a_size; j++) {
+            if (a[j] < a[min_index])
+                min_index = j;
+        }
+        // Move the smallest element to the front
+        if (min_index != 0) {
+            long long int temp = a[min_index];
+            for (int j = min_index; j > 0; j--)
+                a[j] = a[j - 1];
+            a[0] = temp;
+        }
+        pb(a, &a_size, b, &b_size);
+    }
+
+    // Sort the remaining three numbers
+    sort_three_digits(a);
+
+    // Sort the two numbers in b
+    two_digit(b);
+
+    // Push the sorted numbers back to a
+    pa(a, &a_size, b, &b_size);
+    pa(a, &a_size, b, &b_size);
+}
+
 int	get_max_bits(long long int *array, int size)
 {
 	long long int	max_value;

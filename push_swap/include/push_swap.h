@@ -42,7 +42,7 @@ char				**ft_split(char const *s, char c);
 void				two_digit(long long int *me);
 void				sort_three_digits(long long int *me);
 void				radix_sort(long long int *array_a, int size_a);
-void sort_five_numbers(long long int *numbers);
+void sort_five_numbers(long long int *a);
 
 
 // mouvement
