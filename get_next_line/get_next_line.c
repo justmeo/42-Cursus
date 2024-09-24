@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:14:27 by ymrabeti          #+#    #+#             */
-/*   Updated: 2023/08/21 15:30:00 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/07/18 16:34:00 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,30 +88,30 @@ char	*get_next_line(int fd)
 	return (me);
 }
 
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*line;
+int	main(void)
+{
+	int		fd;
+	char	*line;
 
-// 	// Replace "your_file.txt" with the path to the file you want to read
-// 	fd = open("test1.txt", O_RDONLY);
-// 	if (fd < 0)
-// 	{
-// 		perror("Error opening the file");
-// 		return (1);
-// 	}
-// 	// printf("%s$", get_next_line(fd));
-// 	// printf("%s$", get_next_line(fd));
-// 	// printf("%s$", get_next_line(fd));
-// 	// printf("%s$", get_next_line(fd));
-// 	line = get_next_line(fd);
-// 	// printf("%s\n", get_next_line(fd));
-// 	while (line != NULL)
-// 	{
-// 		printf("%s", line);
-// 		free(line);
-// 		line = get_next_line(fd);
-// 	}
-// 	close(fd);
-// 	return (0);
-// }
+	// Replace "your_file.txt" with the path to the file you want to read
+	fd = open("test1.txt", O_RDONLY);
+	if (fd < 0)
+	{
+		perror("Error opening the file");
+		return (1);
+	}
+	printf("%s$", get_next_line(fd));
+	printf("%s$", get_next_line(fd));
+	printf("%s$", get_next_line(fd));
+	printf("%s$", get_next_line(fd));
+	// line = get_next_line(fd);
+	// printf("%s\n", get_next_line(fd));
+	// while (line != NULL)
+	// {
+	// 	printf("%s", line);
+	// 	free(line);
+	// 	line = get_next_line(fd);
+	// }
+	close(fd);
+	return (0);
+}
