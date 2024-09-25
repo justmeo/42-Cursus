@@ -5,6 +5,37 @@
 # include <sys/time.h>
 #include "philo.h"
 
+typedef struct s_prg_args {
+    int n_philos;            // Number of philosophers
+    int t_t_d;               // Time to die
+    int t_t_e;               // Time to eat
+    int t_t_s;               // Time to sleep
+    int n_t_m_e;             // Number of times each philosopher must eat
+    int end_ate;             // Counter for philosophers who finished eating
+    unsigned long elapse_time; // Elapsed time
+    int dead;                // Flag for death
+} t_prg_args;
+typedef struct s_prg_args {
+    int n_philos;            // Number of philosophers
+    int t_t_d;               // Time to die
+    int t_t_e;               // Time to eat
+    int t_t_s;               // Time to sleep
+    int n_t_m_e;             // Number of times each philosopher must eat
+    int end_ate;             // Counter for philosophers who finished eating
+    unsigned long elapse_time; // Elapsed time
+    int dead;                // Flag for death
+} t_prg_args;
+typedef struct s_philo {
+    int ate;                  // How many times the philosopher has eaten
+    int id;                   // Philosopher's ID
+    t_prg_args *args;         // Pointer to shared arguments
+    unsigned long init_time;  // Initial time when the philosopher starts
+    unsigned long last_meal;  // Time of the last meal
+    pthread_mutex_t *forks_locker; // Pointer to fork mutexes
+    pthread_mutex_t *print_locker; // Pointer to print mutex
+} t_philo;
+
+
 int	ft_prg_init(t_prg *prg, char **av)
 {
 	t_prg_args	*args;

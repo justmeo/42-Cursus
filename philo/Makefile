@@ -3,6 +3,7 @@ CC = cc
 NAME = philo
 
 CFLAGS = -Wall -Wextra -Werror -g
+LDFLAGS = -lpthread
 
 SRCS = init.c \
 utils.c \
@@ -13,7 +14,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME) 
 
 $(NAME): $(OBJS) 
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
