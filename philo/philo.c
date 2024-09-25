@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 09:45:58 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/09/25 15:43:35 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:58:43 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	ft_is_dead(t_philo *philo)
 	i = 0;
 	while (1)
 	{
+	pthread_mutex_lock(&philo->deadlock);
+		
 		if (timing()
 			- philo[i].last_meal >= (unsigned long)philo->args->timetodie)
 		{
@@ -58,12 +60,12 @@ void	ft_is_dead(t_philo *philo)
 void	ft_philo_deleter(t_prg *p, pthread_t *me)
 {
 	while (--(p->args->n_philos) > -1)
-		pthread_mutex_destroy(&p->philo->forks_locker[p->args->n_philos]);
+		pthread_mutex_destroy(&p->philo->args->forks_locker[p->args->n_philos]);
 	pthread_mutex_destroy(&(*p->philo->print_locker));
 	for (int i = 0; i < p->args->n_philos; i++) {
 		pthread_join(me[i], NULL);
 	}
-	free(p->philo->forks_locker);
+	free(p->philo->args->forks_locker);
 	free(p->philo->print_locker);
 	free(p->args);
 	free(p->philo);

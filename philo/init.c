@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:01:40 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/09/25 16:30:22 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:40:43 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,30 @@ int	prg_init(t_prg *prg, char **av)
 	philo = malloc(sizeof(t_philo) * args->n_philos);
 	if (!philo)
 		return (printf("Error init philos.\n"));
+	args->forks = malloc(sizeof(int) * args->n_philos);
+	if (!args->forks)
+		return (printf("Error init forks.\n"));
+	int i = 0;
+	while (i < args->n_philos)
+		args->forks[i++] = 0;
 	prg->philo = philo;
 	init_lockers(prg);
 	return (0);
 }
 
-void	philo_init(t_philo *philo, t_need *args, pthread_mutex_t *fork_locker,
+void	philo_init(t_philo *philo, t_need *args, pthread_mutex_t *forks_locker,
 		pthread_mutex_t *print_locker)
 {
 	int	i;
 
+	(void) forks_locker;
 	i = 0;
 	while (i < args->n_philos)
 	{
 		philo[i].ate = 0;
 		philo[i].id = i + 1;
 		philo[i].args = args;
-		philo[i].forks[i] = 0;
-		philo[i].forks_locker = fork_locker;
+		// philo[i].forks_locker = fork_locker;
 		philo[i].init_time = timing();
 		philo[i].last_meal = timing();
 		philo[i].print_locker = print_locker;
@@ -66,21 +72,26 @@ void	philo_init(t_philo *philo, t_need *args, pthread_mutex_t *fork_locker,
 	}
 }
 
+
 void	init_lockers(t_prg *prg)
 {
-	pthread_mutex_t	*fork_locker;
+	// pthread_mutex_t	*forks_locker;
 	pthread_mutex_t	*print_locker;
 	int				i;
 
-	fork_locker = malloc(sizeof(pthread_mutex_t) * prg->args->n_philos);
+	prg->args->forks_locker = malloc(sizeof(pthread_mutex_t) * prg->args->n_philos);
 	print_locker = malloc(sizeof(pthread_mutex_t));
-	if (!fork_locker || !print_locker)
+	if (!prg->args->forks_locker || !print_locker)
 		return ;
 	i = -1;
 	while (++i < prg->args->n_philos)
-		if (pthread_mutex_init(&fork_locker[i], NULL))
+		if (pthread_mutex_init(&prg->args->forks_locker[i], NULL))
+			return ;
+	i = -1;
+	while (++i < prg->args->n_philos)
+		if (pthread_mutex_init(&prg->philo->dead_lock, NULL))
 			return ;
 	if (pthread_mutex_init(&(*print_locker), NULL))
 		return ;
-	philo_init(prg->philo, prg->args, fork_locker, print_locker);
+	philo_init(prg->philo, prg->args, prg->args->forks_locker, print_locker);
 }

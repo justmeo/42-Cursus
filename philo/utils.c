@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:01:58 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/09/25 16:28:40 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:26:51 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	grab_fork(t_philo *philo, int fork_id)
 	grabbed = 0;
 	if (!grabbed)
 	{
-		pthread_mutex_lock(&philo->forks_locker[fork_id]);
-		if (philo->forks[fork_id] == 0)
+		pthread_mutex_lock(&philo->args->forks_locker[fork_id]);
+		if (philo->args->forks[fork_id] == 0)
 			grabbed = 1;
 		if (grabbed)
-			philo->forks[fork_id] = 1;
-		pthread_mutex_unlock(&philo->forks_locker[fork_id]);
+			philo->args->forks[fork_id] = 1;
+		pthread_mutex_unlock(&philo->args->forks_locker[fork_id]);
 		if (!grabbed)
 			usleep(100);
 	}
@@ -33,9 +33,9 @@ void	grab_fork(t_philo *philo, int fork_id)
 
 void	drop_fork(t_philo *philo, int fork_id)
 {
-	pthread_mutex_lock(&philo->forks_locker[fork_id]);
-	philo->forks[fork_id] = 0;
-	pthread_mutex_unlock(&philo->forks_locker[fork_id]);
+	pthread_mutex_lock(&philo->args->forks_locker[fork_id]);
+	philo->args->forks[fork_id] = 0;
+	pthread_mutex_unlock(&philo->args->forks_locker[fork_id]);
 }
 
 void	philos_routine(void *p)

@@ -6,7 +6,7 @@
 /*   By: ymrabeti <ymrabeti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 09:45:42 by ymrabeti          #+#    #+#             */
-/*   Updated: 2024/09/25 15:54:15 by ymrabeti         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:45:40 by ymrabeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ typedef struct need
 	int				end_ate;
 	int				n_philos;
 	unsigned long	elapse_time;
-	pthread_mutex_t end_ate_mutex;  // Mutex to protect end_ate
-    pthread_mutex_t dead_mutex;
+	int				*forks;
+	pthread_mutex_t	*forks_locker;
+	// pthread_mutex_t end_ate_mutex;  // Mutex to protect end_ate
+    // pthread_mutex_t dead_mutex;
 }					t_need;
 
 typedef struct philo
@@ -41,9 +43,8 @@ typedef struct philo
 	t_need			*args;
 	unsigned long	init_time;
 	unsigned long	last_meal;
-	int				*forks;
-	pthread_mutex_t	*forks_locker;
 	pthread_mutex_t	*print_locker;
+	pthread_mutex_t dead_lock;
 }					t_philo;
 
 typedef struct prg
